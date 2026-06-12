@@ -4,7 +4,7 @@ const { problemController } = require("../../controllers");
 
 const problemRouter = express.Router();
 
-// specific routes first
+// If any request comes and routes starts with /ping, we map it to problemController
 problemRouter.get("/ping", problemController.problemPingCheck);
 
 problemRouter.get("/", problemController.getProblems);

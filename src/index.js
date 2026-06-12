@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.text());
 
+// If any request comes and routes starts with /api, we map it to apiRouter
 app.use("/api", apiRouter);
 
 app.get("/ping", (req, res) => {
