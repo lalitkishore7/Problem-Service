@@ -11,12 +11,10 @@ problemRouter.get("/", problemController.getProblems);
 
 problemRouter.get("/:id", problemController.getProblem);
 
-problemRouter.put("/", problemController.addProblem);
+problemRouter.post("/", problemController.addProblem);
 
 problemRouter.put("/:id", problemController.updateProblem);
 
 problemRouter.delete("/:id", problemController.deleteProblem);
 
 module.exports = problemRouter;
-
-
