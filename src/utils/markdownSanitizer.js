@@ -7,19 +7,15 @@ function sanitizeMarkdownContent(markdownContent) {
 
   // Markdown -> HTML
   const html = marked.parse(markdownContent);
-  console.log("Coverted html", html);
 
   // Sanitize HTML
   const sanitizedHtml = sanitizeHtmlLibrary(html, {
-    allowedTags: sanitizeHtmlLibrary.defaults.allowedTags,
+    allowedTags: sanitizeHtmlLibrary.defaults.allowedTags.concat(['img'])
   });
 
-  console.log("Sanitized html", sanitizedHtml);
 
   // HTML -> Markdown
   const sanitizedMarkdown = turndownService.turndown(sanitizedHtml);
-
-  console.log("sanitized markdown", sanitizedMarkdown);
 
   return sanitizedMarkdown;
 }
