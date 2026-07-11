@@ -35,6 +35,7 @@ const problemSchema = new mongoose.Schema({
 
 });
 
+// Problem object to query the data
 const Problem = mongoose.model("Problem", problemSchema);
 
 module.exports = Problem;
