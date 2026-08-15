@@ -11,7 +11,6 @@ function problemPingCheck(req, res) {
 
 async function addProblem(req, res, next) {
   try {
-    console.log("Request is coming");
     const newproblem = await problemService.createProblem(req.body);
     return res.status(StatusCodes.CREATED).json({
       success: true,
@@ -52,17 +51,29 @@ async function getProblems(req, res, next) {
   }
 }
 
-function updateProblem(req, res, next) {
+async function updateProblem(req, res, next) {
   try {
-    throw new NotImplemented("addProblem");
+    const newUpdatedProblem = await problemService.updateProblem(req.body, req.params.id);
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: "Successfully updated the problem",
+      error: {},
+      data: newUpdatedProblem,
+    });
   } catch (error) {
     next(error);
   }
 }
 
-function deleteProblem(req, res, next) {
+async function deleteProblem(req, res, next) {
   try {
-    throw new NotImplemented("addProblem");
+    const problemId = await problemService.deleteProblem(req.params.id);
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: 'Successfully deleted a problem',
+      error: {},
+      data: problemId
+    })
   } catch (error) {
     next(error);
   }
