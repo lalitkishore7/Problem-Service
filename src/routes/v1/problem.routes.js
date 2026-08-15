@@ -9,11 +9,13 @@ problemRouter.get("/ping", problemController.problemPingCheck);
 
 problemRouter.get("/", problemController.getProblems);
 
+
 problemRouter.get("/:id", problemController.getProblem);
 
+// /api/v1/problems -> POST REQUEST
 problemRouter.post("/", problemController.addProblem);
 
-problemRouter.put("/:id", problemController.updateProblem);
+problemRouter.patch("/:id", problemController.updateProblem);
 
 problemRouter.delete("/:id", problemController.deleteProblem);
 
